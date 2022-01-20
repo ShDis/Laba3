@@ -15,23 +15,32 @@ class LABA3_API AMyPrimitive : public AMyGeometry
 	GENERATED_BODY()
 
 public:
-	AMyPrimitive(const FObjectInitializer& ObjectInitializer);
+	AMyPrimitive();
 
 public:
-	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+	UFUNCTION(BlueprintPure, meta = (CompactNodeTitle = "get linear color"), Category = "Laba3 Nodes")
 		void getLinearColor(FLinearColor& _color);
 
-	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+	UFUNCTION(BlueprintPure, meta = (CompactNodeTitle = "get metalic"), Category = "Laba3 Nodes")
 		void getMetalic(float& _metalic);
 
-	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+	UFUNCTION(BlueprintPure, meta = (CompactNodeTitle = "get roungness"), Category = "Laba3 Nodes")
 		void getRoughness(float& _roughness);
 
+	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+		void setLinearColor(FLinearColor _color);
+
+	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+		void setMetalic(float _metalic);
+
+	UFUNCTION(BlueprintCallable, Category = "Laba3 Nodes")
+		void setRoughness(float _roughness);
+
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FLinearColor color;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float metalic;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float roughness;
 };
